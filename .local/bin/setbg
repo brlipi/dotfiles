@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WALLP=$(find $HOME/Pictures/wallpapers/ -type f | shuf -n1)
+xwallpaper --zoom "$WALLP"
+#wal -i "$WALLP"
