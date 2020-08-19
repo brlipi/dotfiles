@@ -26,6 +26,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Set vimrc's location and source it on vim startup
+export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
+
 # variables set for future scripts which might need to run these programs
 export EDITOR="vim"
 export TERMINAL="st"
