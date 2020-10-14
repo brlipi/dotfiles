@@ -27,15 +27,18 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Set vimrc's location and source it on vim startup
-export VIMINIT='source "$XDG_CONFIG_HOME/vim/vimrc"'
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 # variables set for future scripts which might need to run these programs
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="brave-browser"
 export READER="zathura"
 
-# defining XDG Base Directory variables (Get bent, MestreLion)
+#defining XDG Base Directory variables (Get bent, MestreLion)
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+# Make npmrc XDG Base Directory compliant
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
