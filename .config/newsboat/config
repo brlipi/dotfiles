@@ -1,3 +1,13 @@
+# Attributes:
+# bold: makes text bold
+# reverse: apparently reverses fg with bg and vice-versa
+# standout: is apparently doing the same thing as reverse ???
+# underline: does something expected of it. underlines.
+# invis: apparently fg and bg goes black
+# protect: no idea
+# dim: didn't see shit. But probably dims colors
+# blink: blinks, but doesn't seem to work as I thought
+
 #auto-reload yes
 
 external-url-viewer "urlview"
@@ -8,13 +18,27 @@ bind-key l open
 bind-key h quit
 bind-key g home
 bind-key G end
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key u pageup
+bind-key d pagedown
 
-color listnormal cyan   default
-color listfocus black   yellow standout bold
-color listnormal_unread green default
-color listfocus_unread  yellow default bold
-color info              red black bold
-color article           white default bold
+# Nuke Sniff's colorstyle that I have to fix the bg conflicts someday
+# color listnormal cyan default
+# color listfocus black yellow standout bold
+# color listnormal_unread blue default
+# color listfocus_unread yellow default bold
+# color info red black bold
+# color article white default bold
+
+color listnormal        color244 default
+color listfocus         black    default  bold
+color listnormal_unread color10  default
+color listfocus_unread  color46  default  bold
+color info              color208 default  bold
+color article           white    default  bold
 
 highlight all      "---.*---"                          yellow
 highlight feedlist ".*(0/0))"                          black
