@@ -108,6 +108,7 @@ alias ..='cd ..'
 alias diff='diff --color'
 
 alias update='apt update && apt list --upgradable'
+alias upgrade='apt upgrade'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
