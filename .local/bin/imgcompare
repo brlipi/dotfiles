@@ -1,0 +1,23 @@
+#!/bin/sh
+
+for FILE in /home/breno/Pictures/wallpapers/Landscapes/*; do
+	if [ -d "$FILE" ]; then
+		:
+	else
+		SRC_NAME=$FILE
+		for FILE in /home/breno/Pictures/tolink/*; do
+			if [ -d "$FILE" ]; then
+				:
+			else
+				CPY_NAME=$FILE
+				# echo "Copy: $CPY_NAME"
+				# echo "Source: $SRC_NAME"
+				if cmp -s "$SRC_NAME" "$CPY_NAME"; then
+					echo "Match: $SRC_NAME == $CPY_NAME"
+					mv "$SRC_NAME" /home/breno/Pictures/wallpapers/LandscapesTemp/
+					break
+				fi
+			fi
+		done
+	fi
+done

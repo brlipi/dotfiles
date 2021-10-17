@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Reminder: When I move the file the symlink points to, the symlink breaks.
+# WIP
+
+for FILE in /home/breno/Pictures/tolink/*; do 
+	if [ -d "$FILE" ]; then
+		:                                     # ":" is a no-op command
+	else
+		sudo ln -s $FILE /home/breno/.local/share/wallpapers/.
+		# sudo ln -s $FILE /usr/share/xfce4/backdrops/.
+		echo $FILE
+	fi
+done
+
+
+ls --color /home/breno/.local/share/wallpapers
+#ls --color /usr/share/xfce4/backdrops/
+
+#if FILE is folder
+#	skip
+
+#else
+#	ln -s /home/breno/Pictures/file.jpg /usr/share/xfce/backdrops/.

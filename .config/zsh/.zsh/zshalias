@@ -1,0 +1,44 @@
+# Aliasing ls to exa (if exa exists)
+if [ -x "$(command -v exa)" ]; then
+	alias ls="exa"
+	alias l="exa"
+	alias ll="exa --long --all --icons --group"
+	alias la="exa --all"
+	alias lsd="exa -d .*"
+else
+	# ls aliases (from Ubuntu)
+	alias lsd="ls -A -I'*'"
+	alias ls='ls --color=auto'
+	alias ll='ls -alF'
+	alias la='ls -A'
+	alias l='ls -CF'
+
+fi
+
+
+# grep aliases (from Ubuntu)
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Editing and reloading .zshrc
+alias cfz="$EDITOR $ZDOTDIR/.zshrc"        # edit .zshrc
+alias scz="source $ZDOTDIR/.zshrc"         # reload zsh configuration
+alias cfa="$EDITOR $ZDOTDIR/.zsh/zshalias" # edit zshalias
+
+# Editing vimrc
+alias cfv="$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
+
+#apt aliases
+alias update='apt update && apt list --upgradable'
+alias upgrade='apt upgrade'
+
+# diff with color
+alias diff='diff --color'
+
+# On zsh, to show all history you need to run history 1. 
+# As to not make an alias history=history 1, fc -l 1 will be used instead
+alias history='fc -l 1' 
+
+# Neofetch + lolcat:
+alias neofetch="neofetch | lolcat"
